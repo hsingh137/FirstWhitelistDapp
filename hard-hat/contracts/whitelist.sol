@@ -1,5 +1,6 @@
+
 //SPDX-License-Identifier: Unlicense
-pragma solidity 0.8.0;
+pragma solidity ^0.8.0;
 
 contract Whitelist{
   // initalizing max number of addresses allowed variable 
@@ -13,12 +14,12 @@ contract Whitelist{
 
    // using constructor set the inital value 
   constructor (uint8 _maxWhitelistedAddresses) {
-    maxWhitelistedAddresses = _maxWhitelistedAddresses
+    maxWhitelistedAddresses = _maxWhitelistedAddresses;
   }
 
 
   function  addAddressToWhitelist() public {
-    require(!whitelistedAddresses[msg.sender] , "Sender has already been whitelisted" )
+    require(!whitelistedAddresses[msg.sender] , "Sender has already been whitelisted" );
 
          // check if the numAddressesWhitelisted < maxWhitelistedAddresses, if not then throw an error.
         require(numAddressesWhitelisted < maxWhitelistedAddresses, "More addresses cant be added, limit reached");
